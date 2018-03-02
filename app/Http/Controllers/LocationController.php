@@ -32,7 +32,7 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $location = $request->isMethod('put') ? Location::findOrFail($request->id) : new Location;
-        $location->id = $request->input('id');
+        //$location->id = $request->input('id');
         $location->mac = $request->input('mac');
         $location->fecha = $request->input('fecha');
         $location->hora = $request->input('hora');
