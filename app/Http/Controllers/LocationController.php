@@ -18,7 +18,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::paginate(15);
+        $locations = Location::orderBy('id', 'desc')->get();
         return LocationResource::collection($locations);
     }
 
@@ -53,7 +53,7 @@ class LocationController extends Controller
     public function show($id)
     {
         //$location = Location::findOrFail();
-        $locations = Location::where('mac', $id)->orderBy('id', 'asc')->paginate(10);
+        $locations = Location::where('mac', $id)->orderBy('id', 'desc')->paginate(10);
         //return new LocationResource($location);
         return LocationResource::collection($locations);
     }
